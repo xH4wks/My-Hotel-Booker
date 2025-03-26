@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hotel Booker</title>
+    <link rel="stylesheet" href="../static/stylesheet/prenotazione.css">
+    <link rel="stylesheet" href="../static/stylesheet/navbar.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-container">
+            <a onclick="location.href='/home'">
+                <img src="../static/images/logo.png" alt="Hotel Logo" class="logo">
+            </a>
+        </div>
+        <nav class="navigation">
+            <a onclick="location.href='/home'" class="nav-link">Home</a>
+            <a onclick="location.href='/ricerca'" class="nav-link">Cerca Prenotazione</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h2>Prenotazione</h2>
+        <form onsubmit="fetchResults(event)">
+            <label for="checkin">Data Check-in:</label>
+            <input type="date" id="checkin" name="checkin" required>
+            
+            <label for="checkout">Data Check-out:</label>
+            <input type="date" id="checkout" name="checkout" required>
+            
+            <label>
+                <input type="checkbox" name="suite"> Suite
+            </label>
+            
+            <button type="submit">Ricerca disponibilità</button>
+        </form>
+    </div>
+
+    <div id="results" class="cards">
+        <p>Inserisci i dati per cercare le camere disponibili...</p>
+    </div>
+    <script src="../static/code/getStanze.js"></script>
+</body>
+</html>
