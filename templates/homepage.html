@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="../static/stylesheet/palette.css">
+    <link rel="stylesheet" href="../static/stylesheet/footer.css">
     <link rel="stylesheet" href="../static/stylesheet/hompage.css">
 </head>
 <body>
     <div class="container">
-        <h1>Benvenuto</h1>
+        <div class="logo">
+            <img src="../static/images/logo.png" alt="Logo" width="150">
+        </div>
+        <h1>Benvenuto a My Hotel Booker</h1>
         <div class="cards">
             <div class="card" onclick="location.href='/prenota'">
                 <h2>Effettua una Prenotazione</h2>
@@ -20,5 +25,49 @@
             </div>
         </div>
     </div>
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="../static/images/immagini_carosello/img3.jpg" alt="Image 3">
+            <img src="../static/images/immagini_carosello/img1.jpg" alt="Image 1">
+            <img src="../static/images/immagini_carosello/img2.jpg" alt="Image 2">
+            <img src="../static/images/immagini_carosello/img4.jpg" alt="Image 4">
+            <img src="../static/images/immagini_carosello/img5.jpg" alt="Image 5">
+            <img src="../static/images/immagini_carosello/img6.jpg" alt="Image 6">
+            <img src="../static/images/immagini_carosello/img7.jpg" alt="Image 7">
+            <img src="../static/images/immagini_carosello/img8.jpg" alt="Image 8">
+            <img src="../static/images/immagini_carosello/img9.jpg" alt="Image 9">
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+    <script src="../static/code/getImg.js"></script>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contatti</h3>
+                <p>📍 Via Napoli 1, 80016, Napoli, Italia</p>
+                <p>📞 +39 081 1234 5678</p>
+                <p>📧 info@myhotelbooker.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Link Utili</h3>
+                <ul>
+                    <li><a href="#">Chi Siamo</a></li>
+                    <li><a href="#">Termini e Condizioni</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Seguici</h3>
+                <p>
+                    <a href="#">Facebook</a> | 
+                    <a href="#">Instagram</a> | 
+                    <a href="#">Twitter</a>
+                </p>
+            </div>
+        </div>
+        <p class="footer-bottom">© 2025 My Hotel Booker - Tutti i diritti riservati all'università pegaso <br>by Gerardo De Falco</p>
+    </footer>
+
 </body>
 </html>

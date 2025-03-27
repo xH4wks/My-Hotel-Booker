@@ -1,7 +1,8 @@
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #d0eaff;
-    display: flex;
+    background-color: var(--colore-quarto);
+    color: var(--colore-terziario);
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -12,9 +13,17 @@ body {
     text-align: center;
 }
 
-h1 {
-    color: #004080;
-    margin-bottom: 20px;
+h1, h2, h3 {
+    color: var(--colore-primario);
+}
+
+a {
+    color: var(--colore-secondario);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--colore-primario);
 }
 
 .cards {
@@ -39,9 +48,48 @@ h1 {
 }
 
 .card h2 {
-    color: #007BFF;
+    color: var(--colore-primario);
 }
 
 .card p {
-    color: #333;
+    color: var(--colore-terziario);
 }
+
+.logo {
+    margin: 20px 0;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 80%;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 1.2s ease-in-out;
+    gap: 10px;
+    width: 300%; /* 3 pagine di immagini */
+}
+
+.carousel img {
+    width: calc(100% / 3);
+    height: auto;
+    max-height: 400px;
+    padding: 20px auto;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev { left: 30px; }
+.next { right: 30px; }

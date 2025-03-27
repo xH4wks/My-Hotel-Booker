@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/stylesheet/palette.css">
+    <link rel="stylesheet" href="../static/stylesheet/dettaglio_camera.css">
+    <title>Dettagli Camera</title>
+</head>
+<body>
+    <h1>Dettagli della Camera #{{ camera.id }}</h1>
+    
+    <div>
+        <h2>Indirizzo Hotel:</h2>
+        <p>{{ camera.hotel_indirizzo }}</p>
+    </div>
+    
+    <div>
+        <h2>Metratura:</h2>
+        <p>{{ camera.metratura }} m²</p>
+    </div>
+
+    <div>
+        <h2>Tipologia:</h2>
+        <p>{{ camera.tipologia }}</p>
+    </div>
+
+    <div>
+        <h2>Costo per notte:</h2>
+        <p>€{{ camera.costo_notte }}</p>
+    </div>
+
+    <div>
+        <h2>Numero di prenotazioni:</h2>
+        <p>{{ camera.prenotazioni }}</p>
+    </div>
+
+    <div>
+        <a href="/prenota/camera/{{ camera.id }}/prenota">Prenota questa camera</a>
+    </div>
+</body>
+</html>

@@ -18,14 +18,10 @@ function fetchResults(event) {
                     <h2>${camera.nome}</h2>
                     <p>Prezzo: €${camera.prezzo} a notte</p>
                     <p>Capacità: ${camera.capacita} persone</p>
-                    <button onclick="prenota(${camera.id})">Prenota</button>
+                    <button onclick="location.href='/prenota/camera/${camera.id}'">Dettagli</button>
                 `;
                 resultsContainer.appendChild(card);
             });
         })
         .catch(error => console.error("Errore nel caricamento delle camere:", error));
-}
-
-function prenota(id) {
-    window.location.href = `/prenotazione/${id}`;
 }

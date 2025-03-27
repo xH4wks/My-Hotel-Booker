@@ -1,0 +1,84 @@
+body {
+    background-color: var(--colore-quarto);
+    color: var(--colore-terziario);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: var(--colore-primario);
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+a {
+    color: var(--colore-secondario);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--colore-primario);
+}
+
+button {
+    background-color: var(--colore-primario);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--colore-terziario);
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 1.5em;
+}
+
+.card p {
+    font-size: 1.2em;
+}
+
+.card button {
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+}
