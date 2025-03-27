@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Hotel Booker</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="../static/stylesheet/palette.css">
+    <link rel="stylesheet" href="../static/stylesheet/navbar.css">
+    <link rel="stylesheet" href="../static/stylesheet/ricerca_prenotazione.css">
 </head>
+
 <body>
-    <h1>test</h1>
+    <header class="navbar">
+        <div class="logo-container">
+            <a onclick="location.href='/home'">
+                <img src="../static/images/logo.png" alt="Hotel Logo" class="logo">
+            </a>
+        </div>
+        <nav class="navigation">
+            <a onclick="location.href='/home'" class="nav-link">Home</a>
+            <a onclick="location.href='/prenota'" class="nav-link">Effettua prenotazione</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Prenotazione</h2>
+        <form onsubmit="fetchResults(event)">
+            <label for="codice_prenotazione">Codice prenotazione:</label>
+            <input type="string" id="codice_prenotazione" name="codice_prenotazione" required>
+            <button type="submit">Ricerca prenotazione</button>
+        </form>
+    </div>
+
+    <div id="results" class="cards">
+        <p>Inserisci i dati per cercare le tue prenotazioni effettuate...</p>
+    </div>
+    <script src="../static/code/getPrenotazione.js"></script>
 </body>
+
 </html>
