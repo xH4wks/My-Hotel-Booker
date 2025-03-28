@@ -15,10 +15,10 @@ function fetchResults(event) {
                 const card = document.createElement("div");
                 card.classList.add("card");
                 card.innerHTML = `
-                    <h2>${camera.nome}</h2>
-                    <p>Prezzo: €${camera.prezzo} a notte</p>
-                    <p>Capacità: ${camera.capacita} persone</p>
-                    <button onclick="location.href='/prenota/camera/${camera.id}'">Dettagli</button>
+                    <h2>${camera.tipologia}</h2>
+                    <p>Prezzo: €${camera.costo_notte} a notte</p>
+                    <p>Dimensione: ${camera.metratura}mq</p>
+                    <button onclick="location.href='/prenota/camera/${camera.id}?checkin=${checkin}&checkout=${checkout}'">Dettagli</button>
                 `;
                 resultsContainer.appendChild(card);
             });

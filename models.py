@@ -7,7 +7,6 @@ class Utente(db.Model):
     codice_fiscale = db.Column(db.String(16), primary_key=True)  # PK
     nome = db.Column(db.String(100), nullable=False)
     cognome = db.Column(db.String(100), nullable=False)
-    data_nascita = db.Column(db.Date, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     prenotazioni = db.relationship('Prenotazione', backref='utente', lazy=True)
 
@@ -33,6 +32,15 @@ class Prenotazione(db.Model):
     camera_id = db.Column(db.Integer, db.ForeignKey('camera.id'), nullable=False)  # FK
     data_checkin = db.Column(db.Date, nullable=False)
     data_checkout = db.Column(db.Date, nullable=False)
+        # Metodo per serializzare la prenotazione
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'utente_cf': self.utente_cf,
+            'camera_id': self.camera_id,
+            'data_checkin': self.data_checkin.strftime('%Y-%m-%d'),  # Formattiamo le date come stringhe
+            'data_checkout': self.data_checkout.strftime('%Y-%m-%d')
+        }
 
     # Assicuriamoci che non ci siano sovrapposizioni di date
     __table_args__ = (

@@ -3,40 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/stylesheet/palette.css">
-    <link rel="stylesheet" href="../static/stylesheet/dettaglio_camera.css">
+    <link rel="stylesheet" href="../../static/stylesheet/palette.css">
+    <link rel="stylesheet" href="../../static/stylesheet/dettaglio_camera.css">
+    <link rel="stylesheet" href="../../static/stylesheet/navbar.css">
     <title>Dettagli Camera</title>
 </head>
 <body>
-    <h1>Dettagli della Camera #{{ camera.id }}</h1>
-    
-    <div>
-        <h2>Indirizzo Hotel:</h2>
-        <p>{{ camera.hotel_indirizzo }}</p>
-    </div>
-    
-    <div>
-        <h2>Metratura:</h2>
-        <p>{{ camera.metratura }} m²</p>
+    <header class="navbar">
+        <div class="logo-container">
+            <a onclick="location.href='/home'">
+                <img src="../../static/images/logo.png" alt="Hotel Logo" class="logo">
+            </a>
+        </div>
+        <nav class="navigation">
+            <a onclick="location.href='/home'" class="nav-link">Home</a>
+            <a onclick="location.href='/prenota'" class="nav-link">Torna alla ricerca camere</a>
+        </nav>
+    </header>
+    <div class="camera-details">
+        <h1>Dettagli della Camera #{{ camera.id }}</h1>
+        
+        <div class="details-container">
+            <div class="detail-item">
+                <h2>Indirizzo Hotel:</h2>
+                <p>{{ camera.hotel_indirizzo }}</p>
+            </div>
+            
+            <div class="detail-item">
+                <h2>Metratura:</h2>
+                <p>{{ camera.metratura }} m²</p>
+            </div>
+
+            <div class="detail-item">
+                <h2>Tipologia:</h2>
+                <p>{{ camera.tipologia }}</p>
+            </div>
+
+            <div class="detail-item">
+                <h2>Costo per notte:</h2>
+                <p>€{{ camera.costo_notte }}</p>
+            </div>
+        </div>
     </div>
 
-    <div>
-        <h2>Tipologia:</h2>
-        <p>{{ camera.tipologia }}</p>
+    <!-- Form di Prenotazione -->
+    <div class="booking-form">
+        <h2>Inserisci i tuoi dati per la prenotazione</h2>
+        
+        <form id="formPrenotazione" onsubmit="fetchResults(event)">
+            <label for="camera">Numero Camera:</label>
+            <input type="number" id="camera_id" name="camera_id" value="{{ camera.id }}" readonly>
+
+            <label for="data_checkin">Data Check-in:</label>
+            <input type="date" id="data_checkin" name="data_checkin" value="{{ checkin }}" readonly>
+            
+            <label for="data_checkout">Data Check-out:</label>
+            <input type="date" id="data_checkout" name="data_checkout" value="{{ checkout }}" readonly>
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required maxlength="30">
+
+            <label for="cognome">Cognome:</label>
+            <input type="text" id="cognome" name="cognome" required maxlength="30">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="utente_cf">Codice Fiscale:</label>
+            <input type="text" id="utente_cf" name="utente_cf" required maxlength="16">
+            
+            <div class="submit-button">
+                <button type="submit">Prenota questa camera</button>
+            </div>
+        </form>
+    </div>
+     <!-- Modale (inizialmente nascosta) -->
+     <div id="modale" class="modale">
+        <div class="modale-contenuto">
+            <span class="chiudi" id="chiudiModale">&times;</span>
+            <h2>Informazioni Prenotazione</h2>
+            <p>L'ID prenotazione ti servirà per ricercare la prenotazione e gestirla</p>
+            <p><strong>ID Prenotazione:</strong> <span id="idPrenotazione"></span></p>
+            <p><strong>Nome Utente:</strong> <span id="nomeUtente"></span></p>
+            <p><strong>Numero Camera:</strong> <span id="numeroCamera"></span></p>
+            <p><strong>Check-in:</strong> <span id="checkin"></span></p>
+            <p><strong>Check-out:</strong> <span id="checkout"></span></p>
+            <button id="chiudiBtn" onclick="location.href='/home'">Chiudi</button>
+        </div>
     </div>
 
-    <div>
-        <h2>Costo per notte:</h2>
-        <p>€{{ camera.costo_notte }}</p>
-    </div>
-
-    <div>
-        <h2>Numero di prenotazioni:</h2>
-        <p>{{ camera.prenotazioni }}</p>
-    </div>
-
-    <div>
-        <a href="/prenota/camera/{{ camera.id }}/prenota">Prenota questa camera</a>
-    </div>
+    <!-- Inclusione del file JS -->
+    <script src="../../static/code/insertPrenotazione.js"></script>
 </body>
 </html>
