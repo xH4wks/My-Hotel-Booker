@@ -125,19 +125,20 @@ def prenotazione():
 
 
 # Ottenere tutte le prenotazioni
-@app.route('/prenotazioni', methods=['GET'])
+@app.route('/api/prenotazioni', methods=['GET'])
 def get_prenotazioni():
     prenotazioni = Prenotazione.query.all()
     result = [
         {
             "id": p.id,
-            "utente": p.utente.nome,
-            "stanza": p.stanza.numero,
+            "utente": p.utente.email,
+            "camera": p.camera.tipologia,
             "checkin": p.data_checkin.strftime('%Y-%m-%d'),
             "checkout": p.data_checkout.strftime('%Y-%m-%d')
         }
         for p in prenotazioni
     ]
+    print(result)
     return jsonify(result), 200
 #NON TOCCARE PER TESTARE#
 # SCOMMENTARE SOLO SE SI VUOLE CANCELLARE L'INTERO DATABASE DI DATI
